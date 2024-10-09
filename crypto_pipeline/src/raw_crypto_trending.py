@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime
 from crypto_data_ingestion import LocalStorage, DataProcessing
-from .performance_report import profile_code
+from performance_report import profile_code
 
 # Logger configuration
 logging.basicConfig(level=logging.INFO)
