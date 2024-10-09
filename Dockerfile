@@ -8,4 +8,4 @@ WORKDIR /crypto_ingestion/crypto_pipeline/src
 
 RUN poetry install
 
-CMD ["poetry", "run", "python", "ingestion.py"]
+CMD poetry run python landing_crypto_trending.py && poetry run python raw_crypto_trending.py

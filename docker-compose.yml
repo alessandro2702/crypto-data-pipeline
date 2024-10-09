@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   crypto_pipeline:
@@ -8,19 +8,28 @@ services:
     depends_on:
       - minio_local
     networks:
-      - crypto_data_ingestion_network
-  
+      crypto_data_ingestion_network:
+        ipv4_address: 172.18.0.11
+    env_file:
+      - .env
+    volumes:
+      - ~/crypto_pipeline/reports:/reports
+    container_name: crypto_pipeline
+
   minio_local:
     image: minio/minio
     container_name: minio_local
     environment:
-      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
-      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
     ports:
+      - "9000:9000"
       - "9001:9001"
     networks:
       crypto_data_ingestion_network:
         ipv4_address: 172.18.0.10
+    env_file:
+      - .env
     volumes:
       - ~/minio/data:/data
     command: server /data --console-address ":9001"
