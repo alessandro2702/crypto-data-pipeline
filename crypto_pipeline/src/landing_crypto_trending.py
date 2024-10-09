@@ -4,7 +4,7 @@ from datetime import datetime
 from io import BytesIO
 
 from crypto_data_ingestion import CoinGeckoAPIClient, LocalStorage
-from performance_report import profile_code
+from performance_report import profile
 
 # Logger configuration
 logging.basicConfig(level=logging.INFO)
@@ -20,7 +20,7 @@ def prepare_environment():
     return storage
 
 
-@profile_code('landing_crypto_trending')
+@profile(script_name='landing_crypto_trending')
 def main():
 
     # Check if the bucket already exists in MinIO, if not, create a new one.

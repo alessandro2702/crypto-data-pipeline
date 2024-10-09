@@ -1,14 +1,14 @@
 import logging
 from datetime import datetime
 from crypto_data_ingestion import LocalStorage, DataProcessing
-from performance_report import profile_code
+from performance_report import profile
 
 # Logger configuration
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-@profile_code('raw_crypto_trending')
+@profile(script_name='raw_crypto_trending')
 def main():
     # Instantiate storage and data processing classes
     logger.info('Instantiating storage and data processing classes.')
