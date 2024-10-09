@@ -1,4 +1,4 @@
-# Cryptocurrency Data Ingestion
+# Cryptocurrency Data Pipeline
 
 Este projeto é uma aplicação Python desenvolvida para facilitar a ingestão e o processamento de dados de sobre criptomoedas. O objetivo é fornecer uma solução robusta e escalável para coletar, armazenar e analisar dados transacionais de forma eficiente.
 
